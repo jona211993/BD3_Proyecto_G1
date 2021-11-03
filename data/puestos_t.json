@@ -1,0 +1,7 @@
+[
+{"id": 4001,"Empresa_id":"emp002","nombre":"Contador","descripcion":"asaasasas", "salary":3700,"fecha_public":"21/10/21","fecha_max_re":"05/11/12","duracion_anios":3,"expe_min_anios":3,"ubicacion":"Lima","Carreras_afin":["Contabilidad","Administracion"],"modalidad":"full-time"},
+{"id": 4002,"Empresa_id":"emp001","nombre":"Desarrollador Web","descripcion":"asaasasas", "salary":6700,"fecha_public":"17/10/21","fecha_max_re":"01/11/21","duracion_anios":3,"expe_min_anios":2,"ubicacion":"Lima","Carreras_afin":["ingenieria de sistemas","ingenieria de software"],"modalidad":"full-time"},
+{"id": 4003,"Empresa_id":"emp003","nombre":"Contador","descripcion":"asaasasas", "salary":5700,"fecha_public":"19/10/21","fecha_max_re":"29/10/21","duracion_anios":4,"expe_min_anios":5,"ubicacion":"Lima","Carreras_afin":["Contabilidad","Administracion"],"modalidad":"full-time"}
+
+
+]

@@ -1,0 +1,27 @@
+[
+    {"user_id":1001, "user":"Ber24", "password":"B001", "dni":"42553781", "name":"Bertoldo",
+    "lastname":"Calderon","edad":24,"email":"berCalderon@gmail.com","celular":"967345222",
+    "direccion":"Calle Nisperos 234","formacion":"universitario","centro_e": "San Pablo",
+    "Carrera":"ingenieria de sistemas"},
+
+    {"user_id": 1002, "user":"aleja23", "password":"A002", "dni":"47833121", "name":"Alejandra",
+        "lastname":"Perez","edad":23,"email":"alePere04@gmail.com","celular":"96785222",
+        "direccion":"Calle Museo 1234","formacion":"ninguna"},
+
+    {"user_id":1003, "user":"Julio25", "password":"J003", "dni":"11112342", "name":"Julio",
+        "lastname":"Medina","edad":25,"email":"medina34n@gmail.com","celular":"94467511",
+        "direccion":"Calle Jazmines 234","formacion":"universitario","centro_e": "San Cristobal",
+        "Carrera":"ingenieria de sistemas"},
+    
+    {"user_id":1004, "user":"maria26", "password":"M004", "dni":"67463733", "name":"Maria",
+        "lastname":"Torres","edad":26,"email":"mariaTorres@gmail.com","celular":"967345222",
+        "direccion":"Calle Nisperos 234","formacion":"tecnico","centro_e": "Santa Lucia",
+        "Carrera":"contabiluser_idad"},
+
+    {"user_id":1005, "user":"lucia24", "password":"L005", "dni":"42332111", "name":"Lucia",
+          "lastname":"Duran","edad":24,"email":"duran24@gmail.com","celular":"967345222",
+          "direccion":"Calle Luceros 124","formacion":"universitario","centro_e": "San Pablo",
+          "Carrera":"contabiluser_idad"}
+        
+    
+]

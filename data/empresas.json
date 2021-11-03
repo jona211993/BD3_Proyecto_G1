@@ -1,0 +1,14 @@
+[
+    {"id":101, "user":"E001", "password":"emp001", "ruc":"123242553781", "rs":"Banco Latino",
+    "phone":"998989819","email":"bankolatinon@gmail.com","direccion":"Calle Nisperos 234",
+    "departamento":"Lima", "provincia":"Lima","distrito":"Villa El Salvador"},
+
+    {"id":102, "user":"E002", "password":"emp002", "ruc":"111142553781", "rs":"Restobart Cielo",
+        "phone":"987527267","email":"restocielon@gmail.com","direccion":"Calle Perla 981",
+        "departamento":"Arequipa", "provincia":"Caraveli","distrito":"Caraveli"},
+
+    {"id":103, "user":"E003", "password":"emp003", "ruc":"104042553781", "rs":"Sk Rental",
+         "phone":"965355571","email":"skrental@gmail.com","direccion":"Matelini 123",
+         "departamento":":Lima", "provincia":"Lima","distrito":"Chorillos"}
+    
+]
