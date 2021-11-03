@@ -2,9 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const Empresa = new Schema({
-
-  id: Number,
-  user: String,
+  nombre: String,
   password: String,
   dni: String,
   ruc: String,

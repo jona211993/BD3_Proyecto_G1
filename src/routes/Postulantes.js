@@ -19,17 +19,16 @@ router.get('/', async (req, res) => {
 // Aquí realizaremos la opereacion de escribir los datos : El famoso POST:
 router.post('/', async (req, res) => {
     try {
-        const { user_id, user, password, dni, name, lastname, edad, email,
-            celular, direccion, formacion, centro_e, Carrera } = req.body;
+        const { name, lastname, dni, password ,edad, email,
+            celular, direccion, formacion, centro_e, carrera } = req.body;
         let response = await POSTULANTES.create({
-            user_id, user, password, dni, name, lastname, edad, email,
-            celular, direccion, formacion, centro_e, Carrera
+            name, lastname, dni, password, edad, email,
+            celular, direccion, formacion, centro_e, carrera
         });
 
         console.log(response)
         return res.json({
             status: 200,
-            user_id,
             name,
             message: "Se ha creado el nuevo postulante"
         });
@@ -44,16 +43,15 @@ router.post('/', async (req, res) => {
 });
 
 // Ahora realizaremos el update::
-router.put("/:user_id", async (req, res) => {
+router.put("/:_id", async (req, res) => {
     try {
         const {
-            user,
-            password,
-            dni,
             name,
             lastname,
+            dni,
             edad,
             email,
+            password,
             celular,
             direccion,
             formacion,
@@ -61,18 +59,17 @@ router.put("/:user_id", async (req, res) => {
             Carrera,
         } = req.body;
 
-        const { user_id } = req.params;
+        const { _id } = req.params;
 
         const Postulante = await POSTULANTES.findOneAndUpdate(
-            { user_id },
+            { _id },
             {
-                user,
-                password,
-                dni,
                 name,
                 lastname,
+                dni,
                 edad,
                 email,
+                password,
                 celular,
                 direccion,
                 formacion,
@@ -87,7 +84,7 @@ router.put("/:user_id", async (req, res) => {
             });
         }
 
-        const updated_postulante = await POSTULANTES.findOne({ user_id });
+        const updated_postulante = await POSTULANTES.findOne({ _id });
 
         return res.json({
             status: 200,
@@ -107,10 +104,10 @@ router.put("/:user_id", async (req, res) => {
 
 // Delete
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:_id", async (req, res) => {
     try {
-        const { id } = req.params;
-        const response = await POSTULANTES.findByIdAndDelete(id);
+        const { _id } = req.params;
+        const response = await POSTULANTES.findByIdAndDelete(_id);
         return res.json({
             status: 200,
             message: "Se ha eliminado al postulante"

@@ -2,15 +2,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const Postulante = new Schema({
-
-  user_id: Number,
-  user: String,
-  password: String,
-  dni: String,
   name: String,
   lastname: String,
+  dni: String,
   edad: Number,
   email: String,
+  password: String,
   celular: String,
   direccion: String,
   formacion: String,
