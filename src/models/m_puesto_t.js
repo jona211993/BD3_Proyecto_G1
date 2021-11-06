@@ -3,18 +3,18 @@ const {Schema} = mongoose;
 
 const Puesto_t= new Schema({
   
-    id: Number,
-    Empresa_id: String,
+    empresa_id: mongoose.Types.ObjectId,
     nombre: String,
     descripcion: String,
     salary: Number,
     ubicacion: String,
+    tiempo_en: String,
+    duracion: Number,
     fecha_public: Date,
     fecha_max_re: Date,
-    duracion_anios:Number,
-    expe_min_anios: Number,
+    experiencia: Number,
     modalidad:String,
-    Carreras_afin: [],
+    carreras_afin: [],
          
     // esto ultimo que coloco es para que identifique a la coleccion en la
     // que deseo trabajar, antes me creaba una nueva.

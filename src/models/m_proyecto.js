@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const Proyecto= new Schema({
-  
-    id: Number,
-    Empresa: String,
+    empresa_id: mongoose.Types.ObjectId,
     nombre: String,
-    email: String,
+    descripccion: String,
     salary: Number,
+    tiempo_en: String,
+    duracion: Number,
     ubicacion: String,
     fecha_public: Date,
-     fecha_max_re: Date,
-     carreras_afin: [],
-         
+    fecha_max_re: Date,
+    carreras_afin: [],
+             
     // esto ultimo que coloco es para que identifique a la coleccion en la
     // que deseo trabajar, antes me creaba una nueva.
   }, {collection: 'Proyectos'});
