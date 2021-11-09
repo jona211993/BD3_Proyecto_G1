@@ -132,7 +132,7 @@ router.put("/:_id", async (req, res) => {
       direccion,
       formacion,
       centro_e,
-      Carrera,
+      carrera,
     } = req.body;
 
     const { _id } = req.params;
@@ -150,7 +150,7 @@ router.put("/:_id", async (req, res) => {
         direccion,
         formacion,
         centro_e,
-        Carrera,
+        carrera,
       }
     );
     if (!Postulante) {
