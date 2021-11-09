@@ -10,9 +10,70 @@ const POSTULANTES = require("../models/m_postulante");
 // Definimos las rutas::
 
 // Aquí realizaremos la opereacion de Consulta : El famoso GET:
-router.get("/", async (req, res) => {
-  const p = await POSTULANTES.find();
-  res.json(p);
+router.get("/", async (request, response) => {
+  try {
+    const { edad, formacion } = request.query; //* Consulta que viene del cliente
+    let queryServidor = {}; //* Consulta pero del servidor, consulta que el servidor va a realizar
+
+    if (edad) queryServidor.edad = edad;
+    /*
+     * queryServidor = {
+     *  edad: edad
+     * }
+     */
+
+    /*
+     * queryServidor = {}
+     */
+
+    if (formacion) queryServidor.formacion = formacion;
+    /*
+     * queryServidor = {
+     *  formacion: formacion
+     *  edad: edad
+     * }
+     */
+
+    /*
+     * queryServidor = {}
+     */
+
+    const responsePostulantes = await POSTULANTES.find(queryServidor).select([
+      "-password",
+    ]);
+    return response.json({
+      status: 200,
+      data: responsePostulantes,
+      message: "Se ha obtenido los usuarios con éxito",
+    });
+  } catch (e) {
+    return res.json({
+      status: 500,
+      message:
+        "Se ha generado un error al momento hacer la peticion de los Postulantes",
+    });
+  }
+});
+
+//* Busqueda unica de Postulante mediante un identificador Unico
+router.get("/:unique", async (req, res) => {
+  try {
+    const { unique } = req.params;
+    const responsePostulante = await POSTULANTES.findOne({ _id: unique  }).select(['-password'])
+
+    return res.json({
+      status: 200,
+      data: responsePostulante,
+      message: "Se ha obtenido con éxito el Postulante",
+    });
+  } catch (e) {
+    console.log(e);
+    return res.json({
+      status: 500,
+      message:
+        "Se ha generado un error al momento hacer la peticion de un Postulante",
+    });
+  }
 });
 
 // Aquí realizaremos la opereacion de escribir los datos : El famoso POST:
@@ -44,18 +105,15 @@ router.post("/", async (req, res) => {
       centro_e,
       carrera,
     });
-
-    console.log(response);
     return res.json({
-      status: 200,
+      status: 201,
       name,
       message: "Se ha creado el nuevo postulante",
     });
   } catch (error) {
-    console.log(error);
     return res.json({
       status: 500,
-      message: "Ha aparecido un ERROR",
+      message: "Se ha generado un error al momento de crear un Postulante",
     });
   }
 });
@@ -98,7 +156,7 @@ router.put("/:_id", async (req, res) => {
     if (!Postulante) {
       return res.json({
         status: 404,
-        message: "No se encontró al postulante",
+        message: "No se encontró al postulante que se quiere editar",
       });
     }
 
@@ -113,7 +171,7 @@ router.put("/:_id", async (req, res) => {
     console.log(error);
     return res.json({
       status: 500,
-      message: "Ha aparecido un ERROR",
+      message: "Ha aparecido un ERROR al momento de actualizar a un postulante",
       postulante: updated_postulante,
     });
   }
@@ -133,7 +191,7 @@ router.delete("/:_id", async (req, res) => {
     console.log(error);
     return res.json({
       status: 500,
-      message: "Hubo un error",
+      message: "Hubo un error al momento de elimianr un postulante",
     });
   }
 });

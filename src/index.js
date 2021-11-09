@@ -35,12 +35,7 @@ app.use("/Proyectos", require("./routes/Proyectos"));
 
 app.use("/Puestos", require("./routes/Puestos_t"));
 
-// STATICS FILES
-// Configurando para que mi carpeta public vaya al navegador:
-app.use(express.static(__dirname + "/public"));
-
 // SERVER  ESCUCHANDO
-
 app.listen(app.get("port"), () => {
   console.log("Servidor en puerto", app.get("port"));
 });
