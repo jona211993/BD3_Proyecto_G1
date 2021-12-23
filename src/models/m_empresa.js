@@ -4,7 +4,6 @@ const { Schema } = mongoose;
 const Empresa = new Schema({
   nombre: String,
   password: String,
-  dni: String,
   ruc: String,
   rs: String,
   phone: String,

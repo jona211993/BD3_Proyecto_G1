@@ -34,6 +34,7 @@ app.use("/Empresas", require("./routes/Empresas"));
 app.use("/Proyectos", require("./routes/Proyectos"));
 
 app.use("/Puestos", require("./routes/Puestos_t"));
+app.use("/Administradores", require("./routes/Administradores"));
 
 // SERVER  ESCUCHANDO
 app.listen(app.get("port"), () => {
