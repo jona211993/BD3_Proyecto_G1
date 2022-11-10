@@ -1,0 +1,51 @@
+// EN RUTAS  ES  DONDE IRA TODO EL TRABAJO DEL SERVIDOR
+// DONDE SE ESTARA ESCUCHANDO LO QUE PIDA EL NAVEGADOR
+const express = require("express");
+const mongoose = require("mongoose");
+const { SchemaType } = require("mongoose");
+const router = express.Router();
+// aqui voy a requerir mi modelo creado , en
+// este caso fue el modelo Empresa
+const PUBLICACIONES = require("../models/m_publicacion.js");
+// Definimos las rutas::
+router.get("/:unique", async (req, res) => {
+  try {
+    const { unique } = req.params;
+    const responseEmpresa = await PUBLICACIONES.aggregate([
+      { $match: { id_empresa: mongoose.Types.ObjectId(unique) } },
+      {
+        $lookup: {
+          from: "Postulaciones",
+          localField: "_id",
+          foreignField: "id_publicacion",
+          as: "Datos_postulacion",
+        }
+      },
+      {
+        $unwind:"$Datos_postulacion"
+
+      },
+      {
+        $lookup: {
+          from: "Postulantes",
+          localField: "Datos_postulacion.id_postulante",
+          foreignField: "_id",
+          as: "Datos_postulante",
+        },
+      },
+    ]);
+    return res.json({
+      status: 200,
+      data: responseEmpresa,
+      message: "Se ha obtenido con éxito los datos de la publicacion",
+    });
+  } catch (e) {
+    console.log(e);
+    return res.json({
+      status: 500,
+      message:
+        "Se ha generado un error al momento hacer la peticion de una publicacion",
+    });
+  }
+});
+module.exports = router;
